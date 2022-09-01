@@ -5,34 +5,54 @@ Here a kind of adapter pattern in object-oriented programming is used to link th
 to the base LBM code. So, it is not needed to modify the framework code and the base LBM 
 code when someone wants to use this framework.
  
-1. Download the framework:
+_**1. Download the framework:**_
+
 The following files are the implemented framework:
-The main class of the framework
+
+_*The main class of the framework:*_
+
 MainBC.h, MainBC.cpp
-Data structure class
+
+_*Data structure class:*_
+
 DataStBC.h, DataStBC.cpp
-Existing boundary condition
+
+_*Existing boundary condition:*_
+
 D2Q9BC.h, D2Q9BC.cpp
+
 BouncBackFW.h, BouncBackFW.cpp
+
 ConvexCorner.h, ConvexCorner.cpp
-ConvexCornerMomentMethod.h, ConvexCornerMomentMethod.cpp
-Momentmethod.h, Momentmethod.cpp
-OpenBoundFrstOrd.h, OpenBoundFrstOrd.cpp
+
+ConvxCornMomMethod.h, ConvxCornMomMethod.cpp
+
+MomMethod.h, MomMethod.cpp
+
+Open.h, Open.cpp
+
 Periodic.h, Periodic.cpp
+
 Symmetry.h, Symmetry.cpp
+
 ZouHePress.h, ZouHePress.cpp
+
 ZouHeVelocity.h, ZouHeVelocity.cpp
 
-2. Implement the DataStBC class:
+
+_**2. Implement the DataStBC class:**_
+
 To develop a new data structure for the boundary condition framework it is required to implement
  the DataStBC class provided in DataStBC.h and DataStBC.cpp. Let's call this implemented class 
  DataStructure. To do that, all the virtual functions should be implemented. Each of the virtual 
  functions is documented in the code as a guide for the developer.
  
-3. Create an object from the implemented DataStructure class:
+_**3. Create an object from the implemented DataStructure class:**_
+
 Let's call this object dataSt.
 
-4. Create an object from the MainBC class:
+_**4. Create an object from the MainBC class:**_
+
 First of all, let's create an object from the MainBC class from the provided constructor and call 
 it mainBC. To create this object it is needed to pass the dataSt object as an argument of the 
 constructor of the MainBC class. In this way, the BC framework and LBM code are linked. Also, 
@@ -41,7 +61,8 @@ of the relative path, if any):
 "MainBC.h"
 "MainBC.cpp"
 
-5. Calculate unknown boundary PDFs:
+_**5. Calculate unknown boundary PDFs:**_
+
 Now, in the LBM code at some points, it is required to calculate unknown PDFs of boundary nodes. 
 In order to perform that the main function of the boundary condition framework, i.e. bcPDFvCalculation(), 
 is invoked. Inside this function, at first, the PDF values of the boundary nodes from the base LBM code 
