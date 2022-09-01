@@ -1,14 +1,14 @@
 #pragma once
 #include "D2Q9BC.h"
 
-template <typename Int, typename Dub>
-class ZouHeVelocity : public D2Q9BC<Int, Dub>
+template <typename Int, typename Dub, class T>
+class ZouHeVelocity : public D2Q9BC<Int, Dub, T>
 {
 
 public:
-	ZouHeVelocity<Int, Dub>();
-	ZouHeVelocity(DataStBCIndirect<Int, Dub>& DataSt_);
-	void scheme(RegProperties<Int, Dub> prop);
+	ZouHeVelocity<Int, Dub, T>();
+	ZouHeVelocity(T& DataSt_);
+	void scheme(RegProperties<Int, Dub, T> prop);
 };
 
 

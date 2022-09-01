@@ -1,18 +1,18 @@
 #include "ConvexCornerMomentMethod.h"
 
-template <typename Int, typename Dub>
-ConvexCornerMomentMethod<Int, Dub>::ConvexCornerMomentMethod(){
+template <typename Int, typename Dub, class T>
+ConvexCornerMomentMethod<Int, Dub, T>::ConvexCornerMomentMethod(){
 
 }
-template <typename Int, typename Dub>
-ConvexCornerMomentMethod<Int, Dub>::ConvexCornerMomentMethod(DataStBCIndirect<Int, Dub>& DataSt_) :D2Q9BC<Int, Dub>(DataSt_){
+template <typename Int, typename Dub, class T>
+ConvexCornerMomentMethod<Int, Dub, T>::ConvexCornerMomentMethod(T& DataSt_) :D2Q9BC<Int, Dub, T>(DataSt_){
 	this->schemeInx = 10002;
 
 	std::cout << "ConvexCornerMomentMethod obj done" << std::endl;
 }
 
-template <typename Int, typename Dub>
-void ConvexCornerMomentMethod<Int, Dub>::scheme(RegProperties<Int, Dub> prop) {
+template <typename Int, typename Dub, class T>
+void ConvexCornerMomentMethod<Int, Dub, T>::scheme(RegProperties<Int, Dub, T> prop) {
 
 	Dub rho = prop.PDFval[0] + 2 * (prop.PDFval[5] + prop.PDFval[7]) + 4 * prop.PDFval[6];
 

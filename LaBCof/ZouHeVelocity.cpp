@@ -1,18 +1,18 @@
 #include "ZouHeVelocity.h"
 
-template <typename Int, typename Dub>
-ZouHeVelocity<Int, Dub>::ZouHeVelocity() {
+template <typename Int, typename Dub, class T>
+ZouHeVelocity<Int, Dub, T>::ZouHeVelocity() {
 }
 
-template <typename Int, typename Dub>
-ZouHeVelocity<Int, Dub>::ZouHeVelocity(DataStBCIndirect<Int, Dub>& DataSt_):D2Q9BC<Int, Dub>(DataSt_) {
+template <typename Int, typename Dub, class T>
+ZouHeVelocity<Int, Dub, T>::ZouHeVelocity(T& DataSt_):D2Q9BC<Int, Dub, T>(DataSt_) {
 	this->schemeInx = 4;
 
 	std::cout  << "ZouHeVelocity obj done" << std::endl;
 }
 
-template <typename Int, typename Dub>
-void ZouHeVelocity<Int, Dub>::scheme(RegProperties<Int, Dub> prop) {
+template <typename Int, typename Dub, class T>
+void ZouHeVelocity<Int, Dub, T>::scheme(RegProperties<Int, Dub, T> prop) {
 
 	Dub u = prop.u;
 	Dub v = prop.v;

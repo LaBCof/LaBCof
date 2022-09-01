@@ -1,18 +1,18 @@
 #include "Momentmethod.h"
-template <typename Int, typename Dub>
-Momentmethod<Int, Dub>::Momentmethod() {
+template <typename Int, typename Dub, class T>
+Momentmethod<Int, Dub, T>::Momentmethod() {
 
 }
-template <typename Int, typename Dub>
-Momentmethod<Int, Dub>::Momentmethod(DataStBCIndirect<Int, Dub>& DataSt_) :D2Q9BC<Int, Dub>(DataSt_) {
+template <typename Int, typename Dub, class T>
+Momentmethod<Int, Dub, T>::Momentmethod(T& DataSt_) :D2Q9BC<Int, Dub, T>(DataSt_) {
 	this->schemeInx = 12;
 
 	std::cout << "MomentMethod obj done" << std::endl;
 
 }
 
-template <typename Int, typename Dub>
-void Momentmethod<Int, Dub>::scheme(RegProperties<Int, Dub> prop) {
+template <typename Int, typename Dub, class T>
+void Momentmethod<Int, Dub, T>::scheme(RegProperties<Int, Dub, T> prop) {
 
 	Dub rho = prop.PDFval[0] + prop.PDFval[1] + prop.PDFval[5] + 2 * (prop.PDFval[6] + prop.PDFval[7] + prop.PDFval[8]);
 

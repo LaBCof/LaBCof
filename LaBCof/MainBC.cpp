@@ -1,35 +1,35 @@
 #include "MainBC.h"
 
-template <typename Int, typename Dub>
-MainBC<Int, Dub>::MainBC()
+template <typename Int, typename Dub, class T>
+MainBC<Int, Dub, T>::MainBC()
 {
 }
 
-template <typename Int, typename Dub>
-MainBC<Int, Dub>::~MainBC()
+template <typename Int, typename Dub, class T>
+MainBC<Int, Dub, T>::~MainBC()
 {
 }
 
-template <typename Int, typename Dub>
-MainBC<Int, Dub>::MainBC(DataStBCIndirect<Int, Dub>& dataStBC_)
+template <typename Int, typename Dub, class T>
+MainBC<Int, Dub, T>::MainBC(T& dataStBC_)
 {
 	dataStBC = dataStBC_;
 
-	bouncBackFW = BouncBackFW<Int, Dub>(dataStBC);
-	zouHeVelocity = ZouHeVelocity<Int, Dub>(dataStBC);
-	zouHePress = ZouHePress<Int, Dub>(dataStBC);
-	momentmethod = Momentmethod<Int, Dub>(dataStBC);
-	symmetry = Symmetry<Int, Dub>(dataStBC);
-	periodic = Periodic<Int, Dub>(dataStBC);
-	openBoundFrstOrd = OpenBoundFrstOrd<Int, Dub>(dataStBC);
+	bouncBackFW = BouncBackFW<Int, Dub, T>(dataStBC);
+	zouHeVelocity = ZouHeVelocity<Int, Dub, T>(dataStBC);
+	zouHePress = ZouHePress<Int, Dub, T>(dataStBC);
+	momentmethod = Momentmethod<Int, Dub, T>(dataStBC);
+	symmetry = Symmetry<Int, Dub, T>(dataStBC);
+	periodic = Periodic<Int, Dub, T>(dataStBC);
+	openBoundFrstOrd = OpenBoundFrstOrd<Int, Dub, T>(dataStBC);
 
-	convexCornerMomentMethod = ConvexCornerMomentMethod<Int, Dub>(dataStBC);
-	convexCorner = ConvexCorner<Int, Dub>(dataStBC);
+	convexCornerMomentMethod = ConvexCornerMomentMethod<Int, Dub, T>(dataStBC);
+	convexCorner = ConvexCorner<Int, Dub, T>(dataStBC);
 
 }
 
-template <typename Int, typename Dub>
-void MainBC<Int, Dub>::bcPDFvCalculation() {
+template <typename Int, typename Dub, class T>
+void MainBC<Int, Dub, T>::bcPDFvCalculation() {
 
 	dataStBC.get_bcPDFvFromLBM();
 

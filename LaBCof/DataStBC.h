@@ -5,7 +5,11 @@
 #include <iostream>
 #include <cmath>
 
-template <typename Int, typename Dub>
+#include "..\TypeDefinition.h"
+
+//typedef long long int Int;
+
+template <typename Int, typename Dub, class T>
 class DataStBC
 {
 
@@ -15,7 +19,7 @@ public:
 	Int* nNodeReg; /* Number of nodes belong to each region */
 
 	Dub* bcPDFv; /* PDF values of boundary nodes */
-	Int* bcPDFi; /* PDF Intdexes of boundary nodes */
+	Int* bcPDFi; /* PDF Intdexes of boundary PDFs */
 	Int* orient; /* Orientation of boundary nodes */
 	Int* iBondNode;
 
@@ -29,7 +33,7 @@ public:
 
 protected:	
 	Int nVec; /* Number of vectors of lattice stensil */
-	Int nPDF; /* Number of PDFs formIntg the grid */
+	ULLI nPDF; /* Number of PDFs formIntg the grid */
 	Int nNode; /* Number of nodes formIntg the grid */
 	Int nFluidNode; /* Number of fluid nodes formIntg the grid */
 
@@ -38,7 +42,7 @@ public:
 	/*
 	* Defult constructor.
 	*/
-	DataStBC<Int, Dub>();
+	DataStBC<Int, Dub, T>();
 
 	/*
 	 In this function all of the set_* methods are invoked to generate the data structure of the framework.
@@ -195,7 +199,7 @@ public:
 	* @param flip specify if the PDF should be flipped or not.
 	* @param PDFidx is the Intdexes of a node (This is Intput/output).
 	*/
-	void stencilMapping(Int angle, bool flip, Int* PDFidx);
+	void stencilMapping(Int angle, bool flip, ULLI* PDFidx);
 
 	/*
 	* The Intdexes of all the edges/corners boundary nodes are mapped to the "left side"/"bottom-left corner". 
@@ -240,14 +244,14 @@ public:
 	/*
 	* Get the node Intdex of a PDF based on the data structure of the base LBM code.
 	*/
-	Int virtual iNodePDF(Int iPDF) = 0;
+	Int virtual iNodePDF(ULLI iPDF) = 0;
 
 	/*
 	* Get the Intdex of next PDF based on the data structure of the base LBM code.
 	* Nexet PDF: When streamIntg function is applied on a PDF Int LBM it goes to 
 	* another PDF. We call that PDF as "nextPDF". 
 	*/
-	Int virtual iNextPDF(Int iPDF) = 0;
+	ULLI virtual iNextPDF(ULLI iPDF) = 0;
 
 	/*
 	* Get the Intdex of the "iVel"th PDF belongIntg to a node.
@@ -255,7 +259,7 @@ public:
 	* @param iVel is the Intdex of a PDF based on the lattice stencil.
 	* @return The Intdex of the PDF based on the data structure on the base LBM code.
 	*/
-	Int virtual iPDFNode(Int iNode, Int iVel) = 0;
+	ULLI virtual iPDFNode(Int iNode, Int iVel) = 0;
 
 };
 

@@ -1,14 +1,14 @@
 #pragma once
 #include "D2Q9BC.h"
 
-template <typename Int, typename Dub>
-class Symmetry : public D2Q9BC<Int, Dub>
+template <typename Int, typename Dub, class T>
+class Symmetry : public D2Q9BC<Int, Dub, T>
 {
 public:
-	Symmetry<Int, Dub>();
-	Symmetry<Int, Dub>(DataStBCIndirect<Int, Dub>& DataSt_);
+	Symmetry<Int, Dub, T>();
+	Symmetry<Int, Dub, T>(T& DataSt_);
 
-	void scheme(RegProperties<Int, Dub> prop);
+	void scheme(RegProperties<Int, Dub, T> prop);
 
 };
 

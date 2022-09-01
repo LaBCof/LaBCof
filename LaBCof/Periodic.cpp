@@ -1,12 +1,12 @@
 #include "Periodic.h"
 
-template <typename Int, typename Dub>
-Periodic<Int, Dub>::Periodic() {
+template <typename Int, typename Dub, class T>
+Periodic<Int, Dub, T>::Periodic() {
 
 }
 
-template <typename Int, typename Dub>
-Periodic<Int, Dub>::Periodic(DataStBCIndirect<Int, Dub>& DataSt_) : D2Q9BC<Int, Dub>(DataSt_) {
+template <typename Int, typename Dub, class T>
+Periodic<Int, Dub, T>::Periodic(T& DataSt_) : D2Q9BC<Int, Dub>(DataSt_) {
 
 	this->schemeInx = 5;
 
@@ -25,8 +25,8 @@ Periodic<Int, Dub>::Periodic(DataStBCIndirect<Int, Dub>& DataSt_) : D2Q9BC<Int, 
 	std::cout  << "Periodic obj done" << std::endl;
 }
 
-template <typename Int, typename Dub>
-void Periodic<Int, Dub>::findCorespondingNodes(Int reg1, Int reg2) {
+template <typename Int, typename Dub, class T>
+void Periodic<Int, Dub, T>::findCorespondingNodes(Int reg1, Int reg2) {
 
 	Int nPriodicNode = this->nNodeReg[reg1];
 
@@ -60,8 +60,8 @@ void Periodic<Int, Dub>::findCorespondingNodes(Int reg1, Int reg2) {
 
 }
 
-template <typename Int, typename Dub>
-void Periodic<Int, Dub>::findPeriodicRegions(Int& reg1, Int& reg2) {
+template <typename Int, typename Dub, class T>
+void Periodic<Int, Dub, T>::findPeriodicRegions(Int& reg1, Int& reg2) {
 
 	for (Int iReg = 0; iReg < this->nReg; iReg++) {
 		Int BCindx = this->DataSt.BCidx[iReg];
@@ -82,18 +82,18 @@ void Periodic<Int, Dub>::findPeriodicRegions(Int& reg1, Int& reg2) {
 
 }
 
-template <typename Int, typename Dub>
-void Periodic<Int, Dub>::scheme(RegProperties<Int, Dub> prop) {
+template <typename Int, typename Dub, class T>
+void Periodic<Int, Dub, T>::scheme(RegProperties<Int, Dub, T> prop) {
 	
-	Int iPDF = prop.PDFidx[0];
+	ULLI iPDF = prop.PDFidx[0];
 	
 	Int pt = this->DataSt.iNodePDF(iPDF);
 	
 	Int pt1 = corespondingNode[pt];
 
-	Int iPDF2 = pt1 * this->nVec + 6;
-	Int iPDF3 = pt1 * this->nVec + 7;
-	Int iPDF4 = pt1 * this->nVec + 8;
+	ULLI iPDF2 = pt1 * this->nVec + 6;
+	ULLI iPDF3 = pt1 * this->nVec + 7;
+	ULLI iPDF4 = pt1 * this->nVec + 8;
 
 	prop.PDFval[2] = this->bcPDFv[iPDF2];
 	prop.PDFval[3] = this->bcPDFv[iPDF3];

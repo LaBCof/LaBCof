@@ -1,19 +1,19 @@
 #include "D2Q9BC.h"
 
-template <typename Int, typename Dub>
-D2Q9BC<Int, Dub>::D2Q9BC()
+template <typename Int, typename Dub, class T>
+D2Q9BC<Int, Dub, T>::D2Q9BC()
 {
 }
 
 
-template <typename Int, typename Dub>
-D2Q9BC<Int, Dub>::~D2Q9BC()
+template <typename Int, typename Dub, class T>
+D2Q9BC<Int, Dub, T>::~D2Q9BC()
 {
 }
 
 
-template <typename Int, typename Dub>
-D2Q9BC<Int, Dub>::D2Q9BC(DataStBCIndirect<Int, Dub>&DataSt_)
+template <typename Int, typename Dub, class T>
+D2Q9BC<Int, Dub, T>::D2Q9BC(T&DataSt_)
 {
 
 	DataSt = DataSt_;
@@ -33,14 +33,14 @@ D2Q9BC<Int, Dub>::D2Q9BC(DataStBCIndirect<Int, Dub>&DataSt_)
 
 	nVec = 9;
 
-	regPropContaInter.PDFidx = new Int[nVec];
+	regPropContaInter.PDFidx = new ULLI[nVec];
 	regPropContaInter.PDFval = new Dub[nVec];
 
 }
 
 
-template <typename Int, typename Dub>
-void D2Q9BC<Int, Dub>::execut() {
+template <typename Int, typename Dub, class T>
+void D2Q9BC<Int, Dub, T>::execut() {
 
 	Int sum = 0;
 	for (Int iReg = 0; iReg < nReg; iReg++) {

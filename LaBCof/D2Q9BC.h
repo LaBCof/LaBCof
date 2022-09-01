@@ -1,32 +1,35 @@
 #pragma once
 #include <iostream>
-#include "DataStBCIndirect.h"
+//#include "DataStBCIndirect.h"
 //typedef long long Int Int;
+#include "..\TypeDefinition.h"
 
-template <typename Int, typename Dub>
+
+
+template <typename Int, typename Dub, class T>
 struct RegProperties
 {
 	Int pos;
 	Dub u;
 	Dub v;
 	Dub rho;
-	Int *PDFidx;
+	ULLI*PDFidx;
 	Dub *PDFval;
 	Int angle;
 	bool flip;
 };
 
-template <typename Int, typename Dub>
+template <typename Int, typename Dub, class T>
 class D2Q9BC
 {
 
 public:
-	DataStBCIndirect<Int, Dub> DataSt;
+	T DataSt;
 	Int nVec; 
 	Int schemeInx;
 
 	Dub* bcPDFv;
-	Int * bcPDFi;
+	ULLI* bcPDFi;
 	Int* orient;
 	Int* iBondNode;
 	Int nReg;
@@ -38,14 +41,14 @@ public:
 	Dub* xVel;
 	Dub* yVel;
 
-	RegProperties<Int, Dub> regPropContaInter = RegProperties<Int, Dub>();
+	RegProperties<Int, Dub, T> regPropContaInter = RegProperties<Int, Dub, T>();
 
 public:
-	D2Q9BC<Int, Dub>();
-	~D2Q9BC<Int, Dub>();
-	D2Q9BC<Int, Dub>(DataStBCIndirect<Int, Dub>& DataSt);
+	D2Q9BC<Int, Dub, T>();
+	~D2Q9BC<Int, Dub, T>();
+	D2Q9BC<Int, Dub, T>(T& DataSt);
 
 	void execut();
-	virtual void scheme(RegProperties<Int, Dub> regPropContaInter) = 0;
+	virtual void scheme(RegProperties<Int, Dub, T> regPropContaInter) = 0;
 };
 

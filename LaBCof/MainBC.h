@@ -22,27 +22,27 @@
 #include "ConvexCorner.h"
 #include "ConvexCorner.cpp"
 
-template <typename Int, typename Dub>
+template <typename Int, typename Dub, class T>
 class MainBC
 {
 
 private:
-	DataStBCIndirect<Int, Dub> dataStBC;
+	T dataStBC;
 
-	BouncBackFW<Int, Dub> bouncBackFW;
-	ZouHePress<Int, Dub> zouHePress;
-	ZouHeVelocity<Int, Dub> zouHeVelocity;
-	Momentmethod<Int, Dub> momentmethod;
-	Symmetry<Int, Dub> symmetry;
-	Periodic<Int, Dub> periodic;
-	OpenBoundFrstOrd<Int, Dub> openBoundFrstOrd;
+	BouncBackFW<Int, Dub, T> bouncBackFW;
+	ZouHePress<Int, Dub, T> zouHePress;
+	ZouHeVelocity<Int, Dub, T> zouHeVelocity;
+	Momentmethod<Int, Dub, T> momentmethod;
+	Symmetry<Int, Dub, T> symmetry;
+	Periodic<Int, Dub, T> periodic;
+	OpenBoundFrstOrd<Int, Dub, T> openBoundFrstOrd;
 
-	ConvexCornerMomentMethod<Int, Dub> convexCornerMomentMethod;
-	ConvexCorner<Int, Dub> convexCorner;
+	ConvexCornerMomentMethod<Int, Dub, T> convexCornerMomentMethod;
+	ConvexCorner<Int, Dub, T> convexCorner;
 public:
-	MainBC<Int, Dub>();
-	~MainBC<Int, Dub>();
-	MainBC<Int, Dub>(DataStBCIndirect<Int, Dub>& dataStBC);
+	MainBC<Int, Dub, T>();
+	~MainBC<Int, Dub, T>();
+	MainBC<Int, Dub, T>(T& dataStBC);
 	void bcPDFvCalculation();
 };
 
