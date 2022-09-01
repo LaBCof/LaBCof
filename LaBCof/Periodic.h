@@ -1,26 +1,26 @@
 #pragma once
 #include "D2Q9BC.h"
 
-template <typename Int, typename Dub, class T>
-class Periodic : public D2Q9BC<Int, Dub, T>
+template <typename int1, typename int2, typename Dub, class T>
+class Periodic : public D2Q9BC<int1, int2, Dub, T>
 {
 public:
-	Int nPeriodicPDF = 0;
-	//Int*periodicPDF1;
-	//Int*periodicPDF2;
-	Int* corespondingNode;
+	int2 nPeriodicPDF = 0;
+	//int2*periodicPDF1;
+	//int2*periodicPDF2;
+	int2* corespondingNode;
 
-	Int* nNodeReg;
-	Int nBoundNode;
+	int2* nNodeReg;
+	int2 nBoundNode;
 
 public:
-	Periodic<Int, Dub, T>();
-	Periodic<Int, Dub, T>(T& DataSt_);
+	Periodic<int1, int2, Dub, T>();
+	Periodic<int1, int2, Dub, T>(T& DataSt_);
 
-	void findCorespondingNodes(Int reg1, Int reg2);
-	void findPeriodicRegions(Int& reg1, Int& reg2);
+	void findCorespondingNodes(int2 reg1, int2 reg2);
+	void findPeriodicRegions(int2& reg1, int2& reg2);
 
-	void scheme(RegProperties<Int, Dub, T> prop);
+	void scheme(RegProperties<int1, int2, Dub, T> prop);
 
 };
 

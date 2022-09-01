@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
-  <Class Name="MainBC&lt;Int, Dub, T&gt;">
+  <Class Name="MainBC&lt;int1, int2, Dub, T&gt;">
     <Position X="5.25" Y="0.5" Width="2.75" />
     <Members>
       <Method Name="~MainBC" Hidden="true" />
       <Method Name="MainBC" Hidden="true" />
     </Members>
-    <AssociationLine Name="bouncBackFW" Type="BouncBackFW&lt;Int, Dub, T&gt;" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="bouncBackFW" Type="BouncBackFW&lt;int1, int2, Dub, T&gt;" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="5.839" Y="2.055" />
         <Point X="5.839" Y="3.346" />
@@ -16,7 +16,7 @@
         <Position X="0.039" Y="-0.266" Height="0.182" Width="1.114" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="zouHePress" Type="ZouHePress&lt;Int, Dub, T&gt;" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="zouHePress" Type="ZouHePress&lt;int1, int2, Dub, T&gt;" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="6.036" Y="2.055" />
         <Point X="6.036" Y="4.096" />
@@ -26,7 +26,7 @@
         <Position X="0.073" Y="-0.269" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="zouHeVelocity" Type="ZouHeVelocity&lt;Int, Dub, T&gt;" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="zouHeVelocity" Type="ZouHeVelocity&lt;int1, int2, Dub, T&gt;" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="6.232" Y="2.055" />
         <Point X="6.232" Y="4.846" />
@@ -36,14 +36,14 @@
         <Position X="0.118" Y="-0.269" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="momentmethod" Type="Momentmethod&lt;Int, Dub, T&gt;" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="momentmethod" Type="MomMethod&lt;int1, int2, Dub, T&gt;" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="6.821" Y="2.055" />
         <Point X="6.821" Y="7.096" />
         <Point X="5" Y="7.096" />
       </Path>
     </AssociationLine>
-    <AssociationLine Name="symmetry" Type="Symmetry&lt;Int, Dub, T&gt;" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="symmetry" Type="Symmetry&lt;int1, int2, Dub, T&gt;" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="6.625" Y="2.055" />
         <Point X="6.625" Y="6.346" />
@@ -53,7 +53,7 @@
         <Position X="0.185" Y="-0.255" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="periodic" Type="Periodic&lt;Int, Dub, T&gt;" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="periodic" Type="Periodic&lt;int1, int2, Dub, T&gt;" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="7.018" Y="2.055" />
         <Point X="7.018" Y="7.846" />
@@ -63,7 +63,7 @@
         <Position X="0.357" Y="-0.248" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="openBoundFrstOrd" Type="OpenBoundFrstOrd&lt;Int, Dub, T&gt;" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="openBoundFrstOrd" Type="Open&lt;int1, int2, Dub, T&gt;" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="6.429" Y="2.055" />
         <Point X="6.429" Y="5.596" />
@@ -73,7 +73,7 @@
         <Position X="0.128" Y="-0.28" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="convexCornerMomentMethod" Type="ConvexCornerMomentMethod&lt;Int, Dub, T&gt;" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="convexCornerMomentMethod" Type="ConvxCornMomMethod&lt;int1, int2, Dub, T&gt;" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="7.411" Y="2.055" />
         <Point X="7.411" Y="9.346" />
@@ -83,7 +83,7 @@
         <Position X="0.077" Y="-0.269" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="convexCorner" Type="ConvexCorner&lt;Int, Dub, T&gt;" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="convexCorner" Type="ConvexCorner&lt;int1, int2, Dub, T&gt;" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="7.214" Y="2.055" />
         <Point X="7.214" Y="8.596" />
@@ -106,7 +106,7 @@
       <Field Name="convexCorner" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="D2Q9BC&lt;Int, Dub, T&gt;">
+  <Class Name="D2Q9BC&lt;int1, int2, Dub, T&gt;">
     <Position X="2.25" Y="0.5" Width="2.75" />
     <Members>
       <Method Name="~D2Q9BC" Hidden="true" />
@@ -120,9 +120,9 @@
       <FileName>D:\private\Namvar\PhDstuff\LBM_Code\AF_LBM_MN\src\New folder\D2Q9BC.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BouncBackFW&lt;Int, Dub, T&gt;" Collapsed="true">
+  <Class Name="BouncBackFW&lt;int1, int2, Dub, T&gt;" Collapsed="true">
     <Position X="2.75" Y="3" Width="2.25" />
-    <InheritanceLine Type="D2Q9BC&lt;Int, Dub, T&gt;" FixedToPoint="true">
+    <InheritanceLine Type="D2Q9BC&lt;int1, int2, Dub, T&gt;" FixedToPoint="true">
       <Path>
         <Point X="3.625" Y="2.055" />
         <Point X="3.625" Y="2.625" />
@@ -136,49 +136,49 @@
       <FileName>D:\private\Namvar\PhDstuff\LBM_Code\AF_LBM_MN\src\New folder\BouncBackFW.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ZouHeVelocity&lt;Int, Dub, T&gt;" Collapsed="true">
+  <Class Name="ZouHeVelocity&lt;int1, int2, Dub, T&gt;" Collapsed="true">
     <Position X="2.75" Y="4.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAAAAAAAAA=</HashCode>
       <FileName>D:\private\Namvar\PhDstuff\LBM_Code\AF_LBM_MN\src\New folder\ZouHeVelocity.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Periodic&lt;Int, Dub, T&gt;" Collapsed="true">
+  <Class Name="Periodic&lt;int1, int2, Dub, T&gt;" Collapsed="true">
     <Position X="2.75" Y="7.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>BAAAAAAAAgAQIAAAAAAAAAAAAAAgBgAAAAAAAAAAAAI=</HashCode>
       <FileName>D:\private\Namvar\PhDstuff\LBM_Code\AF_LBM_MN\src\New folder\Periodic.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Momentmethod&lt;Int, Dub, T&gt;" Collapsed="true">
+  <Class Name="MomMethod&lt;int1, int2, Dub, T&gt;" Collapsed="true">
     <Position X="2.75" Y="6.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAABAAAAAAAAAAAAAA=</HashCode>
-      <FileName>D:\private\Namvar\PhDstuff\LBM_Code\AF_LBM_MN\src\New folder\Momentmethod.h</FileName>
+      <FileName>D:\private\Namvar\PhDstuff\LBM_Code\AF_LBM_MN\src\New folder\MomMethod.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ZouHePress&lt;Int, Dub, T&gt;" Collapsed="true">
+  <Class Name="ZouHePress&lt;int1, int2, Dub, T&gt;" Collapsed="true">
     <Position X="2.75" Y="3.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEABAAAAAAAAAAAAAA=</HashCode>
       <FileName>D:\private\Namvar\PhDstuff\LBM_Code\AF_LBM_MN\src\New folder\ZouHePress.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Symmetry&lt;Int, Dub, T&gt;" Collapsed="true">
+  <Class Name="Symmetry&lt;int1, int2, Dub, T&gt;" Collapsed="true">
     <Position X="2.75" Y="6" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAACAAA=</HashCode>
       <FileName>D:\private\Namvar\PhDstuff\LBM_Code\AF_LBM_MN\src\New folder\Symmetry.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OpenBoundFrstOrd&lt;Int, Dub, T&gt;" Collapsed="true">
+  <Class Name="Open&lt;int1, int2, Dub, T&gt;" Collapsed="true">
     <Position X="2.75" Y="5.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgABAAAAAAAAAAAAAA=</HashCode>
-      <FileName>D:\private\Namvar\PhDstuff\LBM_Code\AF_LBM_MN\src\New folder\OpenBoundFrstOrd.h</FileName>
+      <FileName>D:\private\Namvar\PhDstuff\LBM_Code\AF_LBM_MN\src\New folder\Open.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DataStBC&lt;Int, Dub, T&gt;">
+  <Class Name="DataStBC&lt;int1, int2, Dub, T&gt;">
     <Position X="8.25" Y="0.5" Width="2.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
@@ -189,18 +189,18 @@
       <NewMemberFileName>D:\private\Namvar\PhDstuff\LBM_Code\src\DataStBCindirect.h</NewMemberFileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ConvexCorner&lt;Int, Dub, T&gt;" Collapsed="true">
+  <Class Name="ConvexCorner&lt;int1, int2, Dub, T&gt;" Collapsed="true">
     <Position X="2.75" Y="8.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAkAAAAAAAAAAAQAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
       <FileName>D:\private\Namvar\PhDstuff\LBM_Code\AF_LBM_MN\src\New folder\ConvexCorner.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ConvexCornerMomentMethod&lt;Int, Dub, T&gt;" Collapsed="true">
+  <Class Name="ConvxCornMomMethod&lt;int1, int2, Dub, T&gt;" Collapsed="true">
     <Position X="2.75" Y="9" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAA=</HashCode>
-      <FileName>D:\private\Namvar\PhDstuff\LBM_Code\AF_LBM_MN\src\New folder\ConvexCornerMomentMethod.h</FileName>
+      <FileName>D:\private\Namvar\PhDstuff\LBM_Code\AF_LBM_MN\src\New folder\ConvxCornMomMethod.h</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

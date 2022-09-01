@@ -1,54 +1,49 @@
 #pragma once
 #include <iostream>
-//#include "DataStBCIndirect.h"
-//typedef long long Int Int;
-#include "..\TypeDefinition.h"
 
-
-
-template <typename Int, typename Dub, class T>
+template <typename int1, typename int2, typename Dub, class T>
 struct RegProperties
 {
-	Int pos;
+	int2 pos;
 	Dub u;
 	Dub v;
 	Dub rho;
-	ULLI*PDFidx;
+	int1*PDFidx;
 	Dub *PDFval;
-	Int angle;
+	int2 angle;
 	bool flip;
 };
 
-template <typename Int, typename Dub, class T>
+template <typename int1, typename int2, typename Dub, class T>
 class D2Q9BC
 {
 
 public:
 	T DataSt;
-	Int nVec; 
-	Int schemeInx;
+	int2 nVec; 
+	int2 schemeInx;
 
 	Dub* bcPDFv;
-	ULLI* bcPDFi;
-	Int* orient;
-	Int* iBondNode;
-	Int nReg;
-	Int *nNodeReg;
-	Int nBoundNode;
+	int1* bcPDFi;
+	int2* orient;
+	int2* iBondNode;
+	int2 nReg;
+	int2 *nNodeReg;
+	int2 nBoundNode;
 
-	Int* BCidx;
+	int2* BCidx;
 	Dub* rho;
 	Dub* xVel;
 	Dub* yVel;
 
-	RegProperties<Int, Dub, T> regPropContaInter = RegProperties<Int, Dub, T>();
+	RegProperties<int1, int2, Dub, T> regPropContaInter = RegProperties<int1, int2, Dub, T>();
 
 public:
-	D2Q9BC<Int, Dub, T>();
-	~D2Q9BC<Int, Dub, T>();
-	D2Q9BC<Int, Dub, T>(T& DataSt);
+	D2Q9BC<int1, int2, Dub, T>();
+	~D2Q9BC<int1, int2, Dub, T>();
+	D2Q9BC<int1, int2, Dub, T>(T& DataSt);
 
 	void execut();
-	virtual void scheme(RegProperties<Int, Dub, T> regPropContaInter) = 0;
+	virtual void scheme(RegProperties<int1, int2, Dub, T> regPropContaInter) = 0;
 };
 

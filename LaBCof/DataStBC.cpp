@@ -1,12 +1,12 @@
 #include "DataStBC.h"
 
-template <typename Int, typename Dub, class T>
-DataStBC<Int, Dub, T>::DataStBC() {
+template <typename int1, typename int2, typename Dub, class T>
+DataStBC<int1, int2, Dub, T>::DataStBC() {
 
 }
 
-template <typename Int, typename Dub, class T>
-void DataStBC<Int, Dub, T>::DataStPreProc(){
+template <typename int1, typename int2, typename Dub, class T>
+void DataStBC<int1, int2, Dub, T>::DataStPreProc(){
 
 	set_nReg();
 
@@ -51,17 +51,17 @@ void DataStBC<Int, Dub, T>::DataStPreProc(){
 
 }
 
-template <typename Int, typename Dub, class T>
-void DataStBC<Int, Dub, T>::bcPDFmapping()
+template <typename int1, typename int2, typename Dub, class T>
+void DataStBC<int1, int2, Dub, T>::bcPDFmapping()
 {
 
-	ULLI* PDFidx = new ULLI[nVec];
+	int1* PDFidx = new int1[nVec];
 
 	bool flip = false;
-	Int angle = 0;
-	Int pos = -1;
+	int2 angle = 0;
+	int2 pos = -1;
 
-	for (Int i = 0; i < nBoundNode; i++) {
+	for (int2 i = 0; i < nBoundNode; i++) {
 
 		pos = orient[i];
 
@@ -69,7 +69,7 @@ void DataStBC<Int, Dub, T>::bcPDFmapping()
 
 		//std::cout << pos << " 70 specifyFlipRotation "<< angle << std::endl;
 
-		for (Int j = 0; j < nVec; j++) {
+		for (int2 j = 0; j < nVec; j++) {
 			PDFidx[j] = bcPDFi[nVec * i + j];
 			//std::cout << j << " PDFidx " << PDFidx[j] << std::endl;
 
@@ -77,7 +77,7 @@ void DataStBC<Int, Dub, T>::bcPDFmapping()
 
 		stencilMapping(angle, flip, PDFidx);
 
-		for (Int j = 0; j < nVec; j++) {
+		for (int2 j = 0; j < nVec; j++) {
 			bcPDFi[i * nVec + j] = PDFidx[j];
 		}
 
@@ -85,28 +85,28 @@ void DataStBC<Int, Dub, T>::bcPDFmapping()
 
 }
 
-template <typename Int, typename Dub, class T>
-void DataStBC<Int, Dub, T>::stencilMapping(Int angle, bool flip, ULLI* PDFidx) {
+template <typename int1, typename int2, typename Dub, class T>
+void DataStBC<int1, int2, Dub, T>::stencilMapping(int2 angle, bool flip, int1* PDFidx) {
 
-	Int nVec = 9;
-	ULLI tmpPDFidx[9];
-	Int shift = angle / 45;
+	int2 nVec = 9;
+	int1 tmpPDFidx[9];
+	int2 shift = angle / 45;
 
-	for (Int i = 1; i < nVec; i++) {
-		Int j = i - shift;
+	for (int2 i = 1; i < nVec; i++) {
+		int2 j = i - shift;
 		//std::cout << j << " tmpPDFidx " << tmpPDFidx[j] << std::endl;
 		if (j > nVec - 1) j = j - (nVec - 1);
 		if (j < 1) j = j + (nVec - 1);
 		tmpPDFidx[j] = PDFidx[i];
 	}
 
-	for (Int i = 1; i < nVec; i++) {
+	for (int2 i = 1; i < nVec; i++) {
 		PDFidx[i] = tmpPDFidx[i];
 	}
 
 
 	if (flip == true) {
-		ULLI tmp;
+		int1 tmp;
 
 		tmp = PDFidx[1];
 		PDFidx[1] = PDFidx[5];
@@ -123,8 +123,8 @@ void DataStBC<Int, Dub, T>::stencilMapping(Int angle, bool flip, ULLI* PDFidx) {
 
 }
 
-template <typename Int, typename Dub, class T>
-void DataStBC<Int, Dub, T>::specifyFlipRotation(Int pos, bool& flip, Int& angle) {
+template <typename int1, typename int2, typename Dub, class T>
+void DataStBC<int1, int2, Dub, T>::specifyFlipRotation(int2 pos, bool& flip, int2& angle) {
 
 	if (pos == 0) {
 		angle = -90;
@@ -177,8 +177,8 @@ void DataStBC<Int, Dub, T>::specifyFlipRotation(Int pos, bool& flip, Int& angle)
 
 }
 
-template <typename Int, typename Dub, class T>
-void DataStBC<Int, Dub, T>::vectorMapping(Int angle_, bool flip, Dub& U, Dub& V) {
+template <typename int1, typename int2, typename Dub, class T>
+void DataStBC<int1, int2, Dub, T>::vectorMapping(int2 angle_, bool flip, Dub& U, Dub& V) {
 	Dub pi = 4 * atan(1.0);
 	Dub angle = angle_ * pi / 180;
 
@@ -214,12 +214,12 @@ void DataStBC<Int, Dub, T>::vectorMapping(Int angle_, bool flip, Dub& U, Dub& V)
 //void DataStBC::fIntdBoundNodeOrient()
 //{
 //
-//	Int pos;
-//	Int* PDFidx = new Int[nVec];
+//	int2 pos;
+//	int2* PDFidx = new int2[nVec];
 //
-//	for (Int i = 0; i < nBoundNode; i++) {
+//	for (int2 i = 0; i < nBoundNode; i++) {
 //
-//		for (Int j = 0; j < nVec; j++) {
+//		for (int2 j = 0; j < nVec; j++) {
 //			PDFidx[j] = bcPDFi[nVec * i + j];
 //		}
 //
@@ -230,16 +230,16 @@ void DataStBC<Int, Dub, T>::vectorMapping(Int angle_, bool flip, Dub& U, Dub& V)
 //
 //
 //
-//	////Int sum;
-//	////Int nNodeRegion;
+//	////int2 sum;
+//	////int2 nNodeRegion;
 //
 //	////sum = 0;
-//	////for (Int iReg = 0; iReg < nReg; iReg++) {
+//	////for (int2 iReg = 0; iReg < nReg; iReg++) {
 //
 //	////	nNodeRegion = nNodeReg[iReg];
 //	////	if (BCidx[iReg] > 0) {
 //
-//	////		for (Int i = sum; i < sum + nNodeRegion; i++) {
+//	////		for (int2 i = sum; i < sum + nNodeRegion; i++) {
 //
 //	////			//orient[i] = settIntg.pos;
 //	////		}
@@ -253,18 +253,18 @@ void DataStBC<Int, Dub, T>::vectorMapping(Int angle_, bool flip, Dub& U, Dub& V)
 
 
 //
-//Int DataStBC::nodeOrient(Int*& PDFidx) {
-//	Int pos = -1;
-//	Int iPDF;
+//int2 DataStBC::nodeOrient(int2*& PDFidx) {
+//	int2 pos = -1;
+//	int2 iPDF;
 //
-//	iPDF = IntextPDF(PDFidx[1]);    Int p1 = IntodePDF(iPDF);
-//	iPDF = IntextPDF(PDFidx[2]);    Int p2 = IntodePDF(iPDF);
-//	iPDF = IntextPDF(PDFidx[3]);    Int p3 = IntodePDF(iPDF);
-//	iPDF = IntextPDF(PDFidx[4]);    Int p4 = IntodePDF(iPDF);
-//	iPDF = IntextPDF(PDFidx[5]);    Int p5 = IntodePDF(iPDF);
-//	iPDF = IntextPDF(PDFidx[6]);    Int p6 = IntodePDF(iPDF);
-//	iPDF = IntextPDF(PDFidx[7]);    Int p7 = IntodePDF(iPDF);
-//	iPDF = IntextPDF(PDFidx[8]);    Int p8 = IntodePDF(iPDF);
+//	iPDF = IntextPDF(PDFidx[1]);    int2 p1 = IntodePDF(iPDF);
+//	iPDF = IntextPDF(PDFidx[2]);    int2 p2 = IntodePDF(iPDF);
+//	iPDF = IntextPDF(PDFidx[3]);    int2 p3 = IntodePDF(iPDF);
+//	iPDF = IntextPDF(PDFidx[4]);    int2 p4 = IntodePDF(iPDF);
+//	iPDF = IntextPDF(PDFidx[5]);    int2 p5 = IntodePDF(iPDF);
+//	iPDF = IntextPDF(PDFidx[6]);    int2 p6 = IntodePDF(iPDF);
+//	iPDF = IntextPDF(PDFidx[7]);    int2 p7 = IntodePDF(iPDF);
+//	iPDF = IntextPDF(PDFidx[8]);    int2 p8 = IntodePDF(iPDF);
 //
 //	if (!isFluid(p3) && !isFluid(p7) && isFluid(p1)) return pos = 0;
 //	if (!isFluid(p3) && !isFluid(p7) && isFluid(p5)) return pos = 1;

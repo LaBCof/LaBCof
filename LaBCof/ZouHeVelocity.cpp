@@ -1,26 +1,26 @@
 #include "ZouHeVelocity.h"
 
-template <typename Int, typename Dub, class T>
-ZouHeVelocity<Int, Dub, T>::ZouHeVelocity() {
+template <typename int1, typename int2, typename Dub, class T>
+ZouHeVelocity<int1, int2, Dub, T>::ZouHeVelocity() {
 }
 
-template <typename Int, typename Dub, class T>
-ZouHeVelocity<Int, Dub, T>::ZouHeVelocity(T& DataSt_):D2Q9BC<Int, Dub, T>(DataSt_) {
+template <typename int1, typename int2, typename Dub, class T>
+ZouHeVelocity<int1, int2, Dub, T>::ZouHeVelocity(T& DataSt_):D2Q9BC<int1, int2, Dub, T>(DataSt_) {
 	this->schemeInx = 4;
 
 	std::cout  << "ZouHeVelocity obj done" << std::endl;
 }
 
-template <typename Int, typename Dub, class T>
-void ZouHeVelocity<Int, Dub, T>::scheme(RegProperties<Int, Dub, T> prop) {
+template <typename int1, typename int2, typename Dub, class T>
+void ZouHeVelocity<int1, int2, Dub, T>::scheme(RegProperties<int1, int2, Dub, T> prop) {
 
 	Dub u = prop.u;
 	Dub v = prop.v;
 
-	Int pos = prop.pos;
+	int2 pos = prop.pos;
 
 	bool flip = false;
-	Int angle = 0;
+	int2 angle = 0;
 	
 	this->DataSt.specifyFlipRotation(pos, flip, angle);
 	this->DataSt.vectorMapping(angle, flip, u, v);

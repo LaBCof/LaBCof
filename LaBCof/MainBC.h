@@ -11,38 +11,38 @@
 #include "ZouHeVelocity.cpp"
 #include "Symmetry.h"
 #include "Symmetry.cpp"
-#include "Momentmethod.h"
-#include "Momentmethod.cpp"
+#include "MomMethod.h"
+#include "MomMethod.cpp"
 #include "Periodic.h"
 #include "Periodic.cpp"
-#include "OpenBoundFrstOrd.h"
-#include "OpenBoundFrstOrd.cpp"
-#include "ConvexCornerMomentMethod.h"
-#include "ConvexCornerMomentMethod.cpp"
+#include "Open.h"
+#include "Open.cpp"
+#include "ConvxCornMomMethod.h"
+#include "ConvxCornMomMethod.cpp"
 #include "ConvexCorner.h"
 #include "ConvexCorner.cpp"
 
-template <typename Int, typename Dub, class T>
+template <typename int1, typename int2, typename Dub, class T>
 class MainBC
 {
 
 private:
 	T dataStBC;
 
-	BouncBackFW<Int, Dub, T> bouncBackFW;
-	ZouHePress<Int, Dub, T> zouHePress;
-	ZouHeVelocity<Int, Dub, T> zouHeVelocity;
-	Momentmethod<Int, Dub, T> momentmethod;
-	Symmetry<Int, Dub, T> symmetry;
-	Periodic<Int, Dub, T> periodic;
-	OpenBoundFrstOrd<Int, Dub, T> openBoundFrstOrd;
+	BouncBackFW<int1, int2, Dub, T> bouncBackFW;
+	ZouHePress<int1, int2, Dub, T> zouHePress;
+	ZouHeVelocity<int1, int2, Dub, T> zouHeVelocity;
+	MomMethod<int1, int2, Dub, T> momentmethod;
+	Symmetry<int1, int2, Dub, T> symmetry;
+	Periodic<int1, int2, Dub, T> periodic;
+	Open<int1, int2, Dub, T> openBoundFrstOrd;
 
-	ConvexCornerMomentMethod<Int, Dub, T> convexCornerMomentMethod;
-	ConvexCorner<Int, Dub, T> convexCorner;
+	ConvxCornMomMethod<int1, int2, Dub, T> convexCornerMomentMethod;
+	ConvexCorner<int1, int2, Dub, T> convexCorner;
 public:
-	MainBC<Int, Dub, T>();
-	~MainBC<Int, Dub, T>();
-	MainBC<Int, Dub, T>(T& dataStBC);
+	MainBC<int1, int2, Dub, T>();
+	~MainBC<int1, int2, Dub, T>();
+	MainBC<int1, int2, Dub, T>(T& dataStBC);
 	void bcPDFvCalculation();
 };
 

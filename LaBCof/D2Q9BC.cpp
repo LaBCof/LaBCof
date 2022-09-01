@@ -1,19 +1,19 @@
 #include "D2Q9BC.h"
 
-template <typename Int, typename Dub, class T>
-D2Q9BC<Int, Dub, T>::D2Q9BC()
+template <typename int1, typename int2, typename Dub, class T>
+D2Q9BC<int1, int2, Dub, T>::D2Q9BC()
 {
 }
 
 
-template <typename Int, typename Dub, class T>
-D2Q9BC<Int, Dub, T>::~D2Q9BC()
+template <typename int1, typename int2, typename Dub, class T>
+D2Q9BC<int1, int2, Dub, T>::~D2Q9BC()
 {
 }
 
 
-template <typename Int, typename Dub, class T>
-D2Q9BC<Int, Dub, T>::D2Q9BC(T&DataSt_)
+template <typename int1, typename int2, typename Dub, class T>
+D2Q9BC<int1, int2, Dub, T>::D2Q9BC(T&DataSt_)
 {
 
 	DataSt = DataSt_;
@@ -33,31 +33,31 @@ D2Q9BC<Int, Dub, T>::D2Q9BC(T&DataSt_)
 
 	nVec = 9;
 
-	regPropContaInter.PDFidx = new ULLI[nVec];
+	regPropContaInter.PDFidx = new int1[nVec];
 	regPropContaInter.PDFval = new Dub[nVec];
 
 }
 
 
-template <typename Int, typename Dub, class T>
-void D2Q9BC<Int, Dub, T>::execut() {
+template <typename int1, typename int2, typename Dub, class T>
+void D2Q9BC<int1, int2, Dub, T>::execut() {
 
-	Int sum = 0;
-	for (Int iReg = 0; iReg < nReg; iReg++) {
+	int2 sum = 0;
+	for (int2 iReg = 0; iReg < nReg; iReg++) {
 
-		Int nNodeRegion = nNodeReg[iReg];
+		int2 nNodeRegion = nNodeReg[iReg];
 		if (BCidx[iReg] != schemeInx) goto label;
 
 		regPropContaInter.rho = rho[iReg];
 		regPropContaInter.u = xVel[iReg];
 		regPropContaInter.v = yVel[iReg];
 
-		for (Int i = sum; i < sum + nNodeRegion; i++) {
+		for (int2 i = sum; i < sum + nNodeRegion; i++) {
 
-			Int Intode = DataSt.iBondNode[i];
+			int2 Intode = DataSt.iBondNode[i];
 
-			for (Int j = 0; j < nVec; j++) {
-				Int idx = nVec * Intode + j;
+			for (int2 j = 0; j < nVec; j++) {
+				int2 idx = nVec * Intode + j;
 				regPropContaInter.PDFidx[j] = bcPDFi[idx];
 				regPropContaInter.PDFval[j] = bcPDFv[idx];
 			}
@@ -66,8 +66,8 @@ void D2Q9BC<Int, Dub, T>::execut() {
 
 			scheme(regPropContaInter);
 
-			for (Int j = 0; j < nVec; j++) {
-				Int idx = nVec * Intode + j;
+			for (int2 j = 0; j < nVec; j++) {
+				int2 idx = nVec * Intode + j;
 				bcPDFv[idx] = regPropContaInter.PDFval[j];
 			}
 		
